@@ -13,7 +13,8 @@ function(x, ...)
     abline(v=obsD, lty="dashed", lwd=2, col="red")
     title(main = "LC Confirm Inference: Ignorable X-covariates?", 
         ylab = "Cumulative Probability",
-        sub = paste("Observed D =", round(obsD, 4), ", Pmax =", x$Pmax))
+        sub = paste("Observed D =", round(obsD, 4),
+            ", Simulated p-value =", x$pv.adj))
     if (x$Type == 1)
         title(xlab = "Kolmogorov-Smirnov D-statistics for NULL LTDs")
     else
@@ -23,8 +24,8 @@ function(x, ...)
 "print.KSperm" <-
 function(x, ...)
 {
-    cat("\nKSperm Object: NULL Distribution of the Kolmogorov-Smirnov")
-    cat("\nD-statistic when given X-covariates are ignorable.\n")
+    cat("\nKSperm: Simulated NULL Distribution of Kolmogorov-Smirnov D-statistics")
+    cat("\n    when the given X-covariates are assumed to be IGNORABLE.\n")
     cat("\nData Frame:", x$dframe, "\n")
     cat("Outcome Variable:", x$yvar, "\n")
     cat("Treatment Variable:", x$trtm, "\n")
@@ -32,13 +33,12 @@ function(x, ...)
         cat("Effect-Size estimates: Local Treatment Differences (LTDs)\n")
     else
         cat("Effect-Size estimates: Local Rank Correlations (LRCs)\n")
-    cat("Number of Clusters per Replication:", x$nclus, "\n")
-    cat("Number of Replications:", x$reps, "\n")
-    # cat("Number of Random NULL D-statistics:", length(x$Dvec), "\n" )
+    cat("Number of Random NULL D-statistics: reps =", length(x$Dvec), "\n" )
+    cat("Number of Clusters per replication:", x$nclus, "\n")
     cat("\n    Observed Kolmogorov-Smirnov D-statistic =", x$obsD)
-    cat("\n    Sorted NULL D-statistic values =\n\n")
+    cat("\n    Simulated NULL KS-D order statistics =\n\n")
     print(x$Dvec)
-    cat("\n    The simulated p.value is thus less than Pmax =", x$Pmax, "\n\n")
+    cat("\n    Simulated adjusted p-value for the Observed D-statistic:", x$pv.adj, "\n\n")
 }
 
 "KSperm" <-
@@ -92,13 +92,13 @@ function(x, reps=100)
         names(pdf) <- c("c", "y", "t", "lstat")
         pdf <- as.data.frame(pdf$lstat)
         names(pdf) <- "lstat"		
-	    kso <- ks.test(pdf$lstat, dfconf$lstat)	  
+	    suppressWarnings( kso <- ks.test(pdf$lstat, dfconf$lstat) )	  
 	    Dvec[i] <- kso$statistic			
     }
     Dvec <- Dvec[order(Dvec)]  # ...rep samples of NULL D-distribution for ignorable X-covariates
     rnk = (rank(c(obsD, Dvec)))[1]
-    maxp = round(((reps^2 + reps - 1 - (reps - 1)*rnk) / reps^2 ), 4)
-    olist <- c(olist, list(obsD=obsD, Dvec=Dvec, Pmax=maxp))	
+    pv.adj = round(((reps^2 + reps - 1 - (reps - 1)*rnk) / reps^2 ), 4)
+    olist <- c(olist, list(obsD=obsD, Dvec=Dvec, pv.adj=pv.adj))	
     class(olist) <- "KSperm"
     olist
 }

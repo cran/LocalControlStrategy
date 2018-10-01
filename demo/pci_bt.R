@@ -30,23 +30,19 @@ plot(surv1000, show="ecdf", LCe)
 LCcompare(LCe)
 # LTD Distribution for 500 Clusters appears to Optimize Variance-Bias Trade-Offs... 
 
-# Save and plot Instrumental Variable LAOs for 2 larger values of K = number of Clusters...
+# Save and plot Instrumental Variable LAOs for 2 large values of K = number of Clusters...
 iv0500  <- ivadj(surv0500)
 plot(iv0500) 
 iv1K  <- ivadj(surv1000)
 plot(iv1K)
 
-# Confirm: Does the Observed LTD Distribution for 500 clusters really differ
-#          from its Random Permutation counterpart assuming Ignorable xvars?
+# Confirm: Does the Observed LRC distribution for 500 clusters truly differ from
+# the Random Permutation NULL distribution assuming x_Covariates are Ignorable?
 system.time( conf5H <- confirm(surv0500) )  # Simulation takes ~36 seconds.
 conf5H
 plot(conf5H)
-# Due to the presence of MANY ties in LTD distributions, the above p.value
-# from ks.test() is badly BIASED downwards!
-warnings()
 
 # Simulate crude pmax.value for Kolmogorov-Smirnov D-statistic...
 system.time( ksd5H <- KSperm(conf5H) )     # Simulation takes ~1.3 minutes.    
 ksd5H
 plot(ksd5H)
-warnings()

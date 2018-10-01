@@ -23,18 +23,20 @@ function(x, ...)
 "print.confirm" <-
 function(x, ...)
 {
-    cat("\nconfirm Object: Artificial Distribution of LTDs/LRCs from Random Clusterings...\n")
-    cat("Data Frame:", x$dframe, "\n")
+    cat("\nconfirm Object: Compare Observed and NULL Distributions of Local Effect-Sizes...\n")
+    cat("   Simulated NULL Distribution uses Random Clusterings of Experimental Units.\n")
+    cat("\nData Frame:", x$dframe, "\n")
     cat("Outcome Variable:", x$yvar, "\n")
     cat("Treatment Factor:", x$trtm, "\n")
     cat("Number of Replications:", x$reps, "\n")
     cat("Number of Clusters per Replication:", x$nclus, "\n")
-    cat("Total Number of Random Local Effect-Sizes:", length(x$dfconf[,1]), "\n" )
-    cat("\n    Mean Observed Effect-Size =", x$LCmean)
+    cat("Number of Random NULL Local Effect-Sizes:", length(x$dfconf[,1]), "\n" )
+    cat("\n    Mean Observed Local Effect-Size =", x$LCmean)
     cat("\n    Std. Dev. of Observed Effect-Sizes =", x$LCstde)
-    cat("\n    Mean Random Effect-Size =", x$RPmean)
-    cat("\n    Std. Dev. of Random Effect-Sizes =", x$RPstde, "\n")
-    print(x$KSobsD)
+    cat("\n    Mean Random NULL Effect-Size =", x$RPmean)
+    cat("\n    Std. Dev. of Random Effect-Sizes =", x$RPstde, "\n\n")
+    cat("Nonstandard Kolmogorov-Smirnov comparison of Discrete Distributions:\n")
+    cat("Observed two-sample KS D-statistic =", x$KSobsD$statistic, "\n\n")
     }
 
 "confirm" <-
@@ -105,7 +107,7 @@ function(x, reps=100, seed=12345)
     }
     RPmean <- round(mean(dfconf$lstat, na.rm = TRUE), 8)      # Weighted Average
     RPstde <- round(sqrt(var(dfconf$lstat, na.rm = TRUE)), 8) # Weighted Std. Dev.
-    KSobsD <- ks.test(dfconf$lstat, LCdist$lstat)
+    suppressWarnings( KSobsD <- ks.test(dfconf$lstat, LCdist$lstat) )
     olist <- c(olist, list(Type=type, LCmean=LCmean, LCstde=LCstde, RPmean=RPmean,
         RPstde=RPstde, KSobsD=KSobsD, LCdist=LCdist, dfconf=dfconf))	
     class(olist) <- "confirm"

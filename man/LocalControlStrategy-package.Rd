@@ -12,9 +12,9 @@
   \tabular{ll}{
   Package: \tab LocalControlStrategy\cr
   Type: \tab Package\cr
-  Version: \tab 1.3\cr
-  Date: \tab 2018-09-15\cr
-  License: \tab GPL\cr
+  Version: \tab 1.3.1\cr
+  Date: \tab 2018-10-01\cr
+  License: \tab GPL-3\cr
   }
 
   UNSUPERVISED LOCAL TREATMENT DIFFERENCES or LOCAL RANK CORRELATIONS:
@@ -50,7 +50,7 @@
   users of LC Strategy decide which Number of Clusters, K, optimizes Variance-Bias trade-offs.
   Larger values of K tend to yield smaller clusters with better matches and, thus, potentially
   reduced BIAS. On the other hand, smaller values of K usually yield local effect-size
-  estimates with much lower variability (higher precision). 
+  estimates with much lower Variability (higher Precision). 
 }
 \author{Bob Obenchain <wizbob@att.net>}
 \references{ 
@@ -62,12 +62,20 @@
   \bold{Analysis of Observational Health Care Data using SAS}, \emph{Cary, NC:SAS Press},
   pages 151-192. 
  
+  Obenchain RL, Young SS. (2013) Advancing Statistical Thinking in Observational Health
+  Care Research. \emph{J. Stat. Theory and Practice}, \bold{7}: 456-469,
+  \doi{10.1080/15598608.2013.772821}.
+
+  Lopiano KK, Obenchain RL, Young SS. (2014) Fair treatment comparisons in observational
+  research. \emph{Statistical Analysis and Data Mining}, \bold{7}: 376-384,
+  \doi{10.1002/sam.11235}.
+
   Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
-  
+
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:
   41-55.
-  
+
   Rosenbaum PR, Rubin RB. (1984) Reducing Bias in Observational Studies Using
   Subclassification on a Propensity Score. \emph{JASA} \bold{79}: 516-524.
 

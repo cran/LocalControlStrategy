@@ -15,21 +15,22 @@
   \item{seed}{This (arbitrary) integer argument will be passed to the R set.seed() function.
     Knowing the value of this seed makes the output from confirm() reproducible.}
 }
-\details{Making multiple calls to confirm() for ltdagg() or lrcagg() objects resulting from
-  different choices of K = Numbers of Clusters help the analyst decide which observed LTD or LRC
-  effect-size distributions are (or are not) meaningfully different from Purely Random. When the
-  X-covariates used in LCcluster() are truly "ignorable," then [i] the resulting clusters will
-  be Purely Random, and [ii] both the number (K) and the sizes (N1, N2, ...,NK) of clusters
-  formed will be meaningless and arbitrary. Thus confirm() simulates the empirical CDF for LTDs or
+\details{Making calls to confirm() for ltdagg() or lrcagg() objects resulting from different choices
+  of K = Numbers of Clusters help the analyst decide which observed LTD or LRC effect-size
+  distributions are (or are not) meaningfully different from Purely Random. When the X-covariates
+  used in LCcluster() are truly "ignorable," then [i] all X-based clusters will be Purely Random,
+  and [ii] both the number (K) and the sizes (N1, N2, ...,NK) of clusters formed will be meaningless
+  and arbitrary. Thus the LC Strategy confirm() function simulates the empirical CDF for LTDs or
   LRCs resulting from purely random permutations of the Cluster ID numbers (1, 2, ...,K) assigned
   by ltdagg() or lrcagg(). Each permutation yields K artificial "clusters" of sizes N1, N2, ..., NK.
   Simulation results are accumulated for the total number of random permutations specified in the
   "reps=" argument of confirm(). Calls to print.confirm() and plot.confirm() provide information on
-  comparisons of empirical CDFs for the observed and Purely Random LTD/LRD distributions, including
-  output from ks.test(). While the value of the Kolmogorov-Smirnov D-statistic can be of interest,
-  the "p.value" from ks.test() is badly biased downwards because LTD/LRC distributions contain MANY
-  TIES. Analysts interested in simulating a crude "pmax.value" can invoke KSperm(confirm()), but
-  each such follow-up computation is slightly more intensive than the original confirm() computation.
+  comparisons of empirical CDFs for the Observed and Purely Random LTD/LRC distributions, including
+  calculation of an observed two-sample Kolmogorov-Smirnov D-statistic using stats::ks.test. This is
+  a non-standard use of ks.test() because the distributions being compared are DISCRETE; both contain
+  many within-cluster TIED effect-size estimates. The p-value computed by ks.test() is not reported
+  or saved because it is badly biased downwards due to TIED estimates. Researchers wishing to simulate
+  a p-value for the observed KS D-statistic that is adjusted for TIES can invoke KSperm(confirm()).
 }
 \value{ An output list object of class confirm:
   \item{hiclus}{Hierarchical clustering object created by the designated method.}
