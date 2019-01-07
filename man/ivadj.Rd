@@ -45,11 +45,11 @@
 \examples{
   \dontrun{
   # Long running example...
-  data(pcidata)
+  data(pci15k)
   xvars <- c("stent", "height", "female", "diabetic", "acutemi", "ejfract", "ves1proc")
-  hclobj <- LCcluster(pcidata, xvars)
-  LC.env <- LCsetup(hclobj, pcidata, thin, surv6mo)
-  surv050 <- ltdagg(50)
+  hclobj <- LCcluster(pci15k, xvars)
+  LC.env <- LCsetup(hclobj, pci15k, thin, surv6mo)
+  surv050 <- ltdagg(50, LC.env)
   iv050 <- ivadj(surv050)
   iv050
   plot(iv050)

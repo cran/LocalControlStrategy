@@ -6,7 +6,7 @@
 \description{Invoke LCsetup() to specify the name of the Hierarchical Clustering object
   output by LCcluster() and the name of the data.frame containing all desired X-covariates, the
   Treatment/Exposure variable and the Y-Outcome variable. It is ESSENTIAL to save the Environment
-  output by LCsetup() as a named object within the user's .GlobalEnv .
+  output by LCsetup() as a named object within the user's .GlobalEnv space.
 }
 \usage{LCsetup(hclobj, dframe, trex, yvar)}
 \arguments{
@@ -17,8 +17,8 @@
   \item{trex}{Name of the numerical Treatment/Exposure variable.}
   \item{yvar}{Name of the numerical Y-Outcome variable.}
 }
-\value{The environment output by LCsetup() must be saved to the user's .GlobalEnv , where it
-  will be updated by calls to other functions within the LocalControlStrategy-package:
+\value{The environment output by LCsetup() must be saved to the user's .GlobalEnv space. It's
+  contents will be automatically updated by calls to other LocalControlStrategy functions:
   \item{aggdf}{data.frame with 4 columns and 1 row for each call to ltdagg() or lrcagg().}
   \item{aggdf$Label}{Factor value of "LTD" or "LRC".}
   \item{aggdf$Blocks}{K = integer Number of Clusters requested.}
@@ -42,17 +42,17 @@
   \bold{Analysis of Observational Health Care Data using SAS}, \emph{Cary, NC:SAS Press},
   pages 151-192. 
 
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 }
 \author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{ltdagg}}, \code{\link{ivadj}} and \code{\link{lrcagg}}.}
 \examples{
   \dontrun{
   # Long running example...
-  data(pcidata)
+  data(pci15k)
   xvars <- c("stent", "height", "female", "diabetic", "acutemi", "ejfract", "ves1proc")
-  hclobj <- LCcluster(pcidata, xvars)
-  LCe <- LCsetup(hclobj, pcidata, thin, surv6mo)
+  hclobj <- LCcluster(pci15k, xvars)
+  LCe <- LCsetup(hclobj, pci15k, thin, surv6mo)
   ls.str(LCe)
   }
 }

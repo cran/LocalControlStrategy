@@ -16,8 +16,8 @@
     \item{state}{State Factor variable (2-character codes); 46 unique levels.}
     \item{county}{County or Parish Factor variable (character codes); 1703 unique levels.}
     \item{lcanmort}{Lung Cancer Mortality rate (deaths per 100,000 person-years), 1980-2004.}
-    \item{radon}{County Radon Exposure level in picocuries per liter (pCi/L), 1986-1992.
-	    Rounded to 1 decimal place.}
+    \item{radon}{County Radon Exposure level in picocuries per liter (pCi/L) for some
+        unspecified period within 1986-1992; rounded to nearest single decimal place.}
     \item{lnradon}{Natural logarithm of County Radon Exposure level. Radon levels reported as
 	    0.0 for 10 US counties are Windsorized here to ln(0.05), which is roughly -3.}
     \item{obesity}{Percentage of County Residents considered Obese (age adjusted), 2008.}

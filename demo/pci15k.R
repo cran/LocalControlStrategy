@@ -2,18 +2,18 @@ require(LocalControlStrategy)
 
 # Input plasmode data on Blood Thinner use in Percutaneous Coronary Interventions (PCIs).
 # This simulation is based upon data collected at the Lindner Center: Kereiakes et al. (2000).
-data(pcidata)
+data(pci15k)
 # outcomes:   surv6mo (binary) or cardcost (continuous)
 # treatment:  thin  ...is binary
 
 # Define Cluster Hierarchy for UNSUPERVISED, nonparametric analyses...
 xvars  <- c("stent","height","female","diabetic","acutemi","ejfract","ves1proc")
-system.time( hclobj <- LCcluster(pcidata, xvars) ) # Calculations take ~8 seconds.  
+system.time( hclobj <- LCcluster(pci15k, xvars) ) # Calculations take ~8 seconds.  
 hclobj                                             # defalut clustering method = "ward.D"
 plot(hclobj)
 
 # Save Local Control basic parameter settings to an environment that will be updated...
-LCe <- LCsetup(hclobj, pcidata, thin, surv6mo)
+LCe <- LCsetup(hclobj, pci15k, thin, surv6mo)
 ls.str(LCe)
 
 # Compute and Save LTD distributions for several values of K = number of Clusters...

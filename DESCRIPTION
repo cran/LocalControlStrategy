@@ -1,8 +1,8 @@
 Package: LocalControlStrategy
 Title: Local Control Strategy for Robust Analysis of Cross-Sectional
         Data
-Version: 1.3.1
-Date: 2018-10-01
+Version: 1.3.2
+Date: 2019-01-07
 Author: Bob Obenchain 
 Maintainer: Bob Obenchain <wizbob@att.net>
 Depends: cluster, lattice
@@ -25,6 +25,6 @@ Description: Especially when cross-sectional data are observational, effects of 
 License: GPL-3
 URL: https://www.R-project.org, http://localcontrolstatistics.org
 NeedsCompilation: no
-Packaged: 2018-09-29 21:17:55 UTC; wiz
+Packaged: 2018-12-25 04:26:55 UTC; wiz
 Repository: CRAN
-Date/Publication: 2018-10-01 04:20:03 UTC
+Date/Publication: 2019-01-07 17:00:37 UTC

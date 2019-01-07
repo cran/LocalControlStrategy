@@ -8,7 +8,7 @@ function(x, ...)
     xmax = max(max(Dvec), obsD)
     par(mfrow = c(1,1))
     plot(ecdf(Dvec), verticals=TRUE, do.points=FALSE, ann=FALSE,
-        col="blue2", lwd=2, xlim = c(0, xmax))
+        col="gray70", lwd=2, xlim = c(0, xmax))
     abline(v=0, lty="solid", col="black")
     abline(v=obsD, lty="dashed", lwd=2, col="red")
     title(main = "LC Confirm Inference: Ignorable X-covariates?", 

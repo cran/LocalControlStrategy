@@ -54,17 +54,17 @@
   \bold{Analysis of Observational Health Care Data using SAS}, \emph{Cary, NC:SAS Press},
   pages 151-192.  
 
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 }
 \author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{ivadj}}, \code{\link{lrcagg}} and \code{\link{LCcompare}}.}
 \examples{
   \dontrun{
   # Long running example...
-    data(pcidata)
+    data(pci15k)
     xvars <- c("stent", "height", "female", "diabetic", "acutemi", "ejfract", "ves1proc")
-    hclobj <- LCcluster(pcidata, xvars)
-    LCe <- LCsetup(hclobj, pcidata, thin, surv6mo)
+    hclobj <- LCcluster(pci15k, xvars)
+    LCe <- LCsetup(hclobj, pci15k, thin, surv6mo)
     surv050 <- ltdagg(50, LCe)
     surv050
     plot(surv050, LCe)

@@ -2,8 +2,8 @@
 \alias{LCcluster}
 \title{Hierarchical Clustering of experimental units (such as patients) in X-covariate Space}
 \description{Form the full, hierarchical clustering tree (dendrogram) for all units (regardless
-  of Treatment/Exposure status) using Mahalonobis distances computed from baseline X-covariate
-  characteristics.}
+  of Treatment/Exposure status) using Mahalonobis distances computed from specified baseline
+  X-covariate characteristics.}
 \usage{
   LCcluster(dframe, xvars, method="ward.D")
 }

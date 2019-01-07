@@ -7,8 +7,8 @@
   ltdagg() or lrcagg() for different values of K.  The analyst then invokes LCcompare() to
   see how choice of K changes the location, spread and/or skewness of the distribution of
   Treatment Effect-Size estimates across Clusters. Variance-Bias trade-offs occur as K
-  increases; large values of K may reduce Bias, but they can also greatly inflate the
-  Variance of LTD and LRC distributions.}
+  increases; large values of K may reduce Bias, but they definitely inflate the Variance of
+  LTD and LRC distributions.}
 
 \usage{
   LCcompare(envir)
@@ -35,7 +35,7 @@
    
   Obenchain RL. (2015) \bold{LC_Confirm_Guidelines.pdf} http://localcontrolstatistics.org 
 
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 
   Rubin DB. (1980) Bias reduction using Mahalanobis metric matching.
   \emph{Biometrics} \bold{36}: 293-298.
@@ -47,13 +47,13 @@
 \examples{
   \dontrun{
   # Long running example...
-  data(pcidata)
+  data(pci15k)
   xvars <- c("stent", "height", "female", "diabetic", "acutemi", "ejfract", "ves1proc")
-  hclobj <- LCcluster(pcidata, xvars)
-  LC.env <- LCsetup(hclobj, pcidata, thin, surv6mo)
-  surv050 <- ltdagg( 50)
-  surv100 <- ltdagg(100)
-  surv200 <- ltdagg(200)
-  LCcompare()
+  hclobj <- LCcluster(pci15k, xvars)
+  LC.env <- LCsetup(hclobj, pci15k, thin, surv6mo)
+  surv050 <- ltdagg( 50, LC.env)
+  surv100 <- ltdagg(100, LC.env)
+  surv200 <- ltdagg(200, LC.env)
+  LCcompare(LC.env)
   }
 }

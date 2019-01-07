@@ -12,8 +12,8 @@
   \tabular{ll}{
   Package: \tab LocalControlStrategy\cr
   Type: \tab Package\cr
-  Version: \tab 1.3.1\cr
-  Date: \tab 2018-10-01\cr
+  Version: \tab 1.3.2\cr
+  Date: \tab 2019-01-07\cr
   License: \tab GPL-3\cr
   }
 
@@ -70,7 +70,7 @@
   research. \emph{Statistical Analysis and Data Mining}, \bold{7}: 376-384,
   \doi{10.1002/sam.11235}.
 
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:

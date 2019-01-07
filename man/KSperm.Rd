@@ -42,7 +42,7 @@
   \bold{Analysis of Observational Health Care Data using SAS}, \emph{Cary, NC:SAS Press},
   pages 151-192. 
 
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 }
 \author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{confirm}}, \code{\link{ltdagg}} and \code{\link{lrcagg}}.}

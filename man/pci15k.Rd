@@ -1,11 +1,11 @@
-\name{pcidata}
-\alias{pcidata}
+\name{pci15k}
+\alias{pci15k}
 \docType{data}
 \title{Six-month Survival, Cardiac cost and Baseline Covariate data for 15,487 PCI patients.}
 \description{Using observational data on 996 patients who received a Percutaneous Coronary
   Intervention (PCI) at Ohio Heart Health, Lindner Center, Christ Hospital, Cincinnati
   (Kereiakes et al, 2000), we generated this much larger dataset via "plasmode simulation."}
-\usage{data(pcidata)}
+\usage{data(pci15k)}
 \format{
   A data frame of 11 variables on 15,487 patients; no NAs.
   \describe{
@@ -37,10 +37,10 @@
   Plasmode Data Sets in the Age of Massive Public Databases: An Illustration Using False Discovery
   Rates. \emph{PLOS Genetics} 2008; \bold{4}: 1-8, e1000098 (Open Access). 
 
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 }
 \examples{
-    data(pcidata)
-    str(pcidata)
+    data(pci15k)
+    str(pci15k)
 }
 \keyword{datasets}

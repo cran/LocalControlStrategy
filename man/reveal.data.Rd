@@ -16,10 +16,10 @@
   \item{effe.var}{Quoted NAME for the LTD/LRC effect-size variable.}
 }
 \value{ The desired data.frame:
-  \item{outdf}{A data.frame containing clus.var, effe.var and (X, trex & Y) variables.}
+  \item{outdf}{A data.frame containing clus.var, effe.var plus (X, trex & Y) variables.}
 }
 \references{
-  Obenchain RL. (2018) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
 }
 \author{Bob Obenchain <wizbob@att.net>}
 \seealso{\code{\link{ltdagg}}, \code{\link{lrcagg}}, and \code{\link{LCsetup}}.}

@@ -6,9 +6,9 @@ function(x, ...)
     nx <- x$nclus
     par(mfrow = c(1,1))
     plot(ecdf(x$dfconf$lstat), verticals=TRUE, do.points=FALSE, ann=FALSE,
-        col="red", lwd=2, pch=46)
+        col="gray70", lwd=2, lty=1)  
     lines(ecdf(x$LCdist$lstat), verticals=TRUE, do.points=FALSE, ann=FALSE,
-        col="blue2", lwd=2, pch=46)
+        col="blue2", lwd=2)
     abline(v=0, lty="dashed", col="black")
     if (x$Type == 1)
         title(main = paste("LC Confirm eCDF Comparison for", nx, "Clusters"), 
