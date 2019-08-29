@@ -5,6 +5,7 @@ importFrom( "stats", "prcomp", "dist", "hclust", "cutree", "kmeans",
             "ecdf", "cor", "var", "lm", "smooth.spline", "predict",
             "aov", "as.formula", "complete.cases", "na.omit", "fitted.values",			
             "rnorm",  "runif", "ks.test" )
+importFrom( "utils", "head", "str" )
 			
 import(cluster)
 import(lattice)
@@ -36,5 +37,11 @@ S3method(print, confirm)
 export(KSperm)
 S3method(plot, KSperm)
 S3method(print, KSperm)
+
+export(mlme)
+S3method(plot, mlme)
+S3method(print, mlme)
+
+export(mlme.stats)
 
 export(reveal.data)

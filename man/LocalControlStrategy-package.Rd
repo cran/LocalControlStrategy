@@ -12,9 +12,9 @@
   \tabular{ll}{
   Package: \tab LocalControlStrategy\cr
   Type: \tab Package\cr
-  Version: \tab 1.3.2\cr
-  Date: \tab 2019-01-07\cr
-  License: \tab GPL-3\cr
+  Version: \tab 1.3.3\cr
+  Date: \tab 2019-09-01\cr
+  License: \tab GPL-2\cr
   }
 
   UNSUPERVISED LOCAL TREATMENT DIFFERENCES or LOCAL RANK CORRELATIONS:
@@ -50,7 +50,14 @@
   users of LC Strategy decide which Number of Clusters, K, optimizes Variance-Bias trade-offs.
   Larger values of K tend to yield smaller clusters with better matches and, thus, potentially
   reduced BIAS. On the other hand, smaller values of K usually yield local effect-size
-  estimates with much lower Variability (higher Precision). 
+  estimates with much lower Variability (higher Precision).
+  
+  "Most-Like-Me" HISTOGRAMS for DOCTOR-PATIENT discussions of PERSONALIZED MEDICINE:
+  
+  For a specified vector, xvec, of numerical values of the X-confounder variables used in the
+  current CLUSTERING of eUnits, display histograms of observed LTD or LRC effect-sizes for
+  (i) all available patients and (ii) for the specified number, NN, of "Nearest-Neighbors" in
+  X-confounder space of the TARGET eUnit ...i.e. xvec defines "Me".
 }
 \author{Bob Obenchain <wizbob@att.net>}
 \references{ 
@@ -70,7 +77,8 @@
   research. \emph{Statistical Analysis and Data Mining}, \bold{7}: 376-384,
   \doi{10.1002/sam.11235}.
 
-  Obenchain RL. (2019) \bold{LCstrategy_in_R.pdf} http://localcontrolstatistics.org 
+  Obenchain RL. LocalControlStrategy-vignette. (2019) \bold{LCstrategy_in_R.pdf}
+  http://localcontrolstatistics.org 
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
   in Observational Studies for Causal Effects. \emph{Biometrika} \bold{70}:

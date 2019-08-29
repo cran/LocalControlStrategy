@@ -46,3 +46,13 @@ plot(conf5H)
 system.time( ksd5H <- KSperm(conf5H) )     # Simulation takes ~1.3 minutes.    
 ksd5H
 plot(ksd5H)
+
+# Example: "Most-Like-Me" Visualizations for pci15k Patient No. 11870...
+# xvars:       "stent","height","female","diabetic","acutemi","ejfract","ves1proc"
+xvec11870 <- c( 0,      162,     1,       1,         0,        57,       1) 	 
+mlme11870 <- mlme(LCe, hclobj, surv0500, xvec11870 )
+plot(mlme11870, NN = 250) 
+# Summary Statistics for 3 values of NN...
+mlme.stats(mlme11870, NN = c( 250, 500, 1000 ))
+
+### End of demo(pci15k) ##############################################

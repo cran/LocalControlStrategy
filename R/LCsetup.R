@@ -13,8 +13,8 @@ function (hclobj, dframe, trex, yvar)
     if (!is.element(as.character(trex), dimnames(dframe)[[2]])) 
         stop("Treatment or Exposure must be an existing Data Frame variable.")
     tvec <- dframe[,trex]
-    Kmax <- floor(length(tvec)/12)    # Guideline: Maximum Number of Clusters
-    NumLevels <- length(table(tvec))
+    Kmax <- floor(length(tvec)/12)    # Guideline: Maximum Number of Clusters = Nobs / 12
+    NumLevels <- length(table(tvec))  # Max "levels" in Treatment / Exposure Level indicator
     if (NumLevels < 2)
         stop("Treatment or Exposure Level is identical for all Experimental Units.")
     if (missing(yvar)) 

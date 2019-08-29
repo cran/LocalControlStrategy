@@ -43,3 +43,19 @@ plot(conf050)
 system.time( ksd050 <- KSperm(conf050) )    # Simulation takes ~12 seconds.   
 ksd050
 plot(ksd050)
+
+# Example: "Most-Like-Me" Visualizations for Residents of
+#          Teller County, Colorado:
+# The "fips" code is a unique identifier of US Counties...
+subset(radon, fips == 8119)
+# xvars: "obesity"  "over65"   "cursmoke"
+xvecTC <- c(17.2, 7.5, 24.4)  
+mlmeTC <- mlme(e, hclobj, mort050, xvecTC )
+# Implicit print...
+mlmeTC
+plot(mlmeTC, NN = 250)
+# Summary Statistics...
+mlme.stats(mlmeTC, NN = 250)
+
+### End of demo(radon) ##############################################
+ 
