@@ -36,12 +36,12 @@
   \item{LTDtabl$LAO}{Numerical value of within-cluster Local Average Outcome (Y-value).} 
   \item{LTDtabl$PS}{Numerical value of Propensity Score = Local Fraction of Experimental
     Units receiving trtm==1; 0.0 <= PS <= 1.0.}   
-  \item{LTDdist}{data.frame with 4 columns and same number of rows as the data: dframe.}
+  \item{LTDdist}{data.frame with 5 columns and same number of rows as the data: dframe.}
   \item{LTDdist$c.K}{Factor values within c("1", "2", ..., "K").}
+  \item{LTDdist$ID}{Observation ID Variable for the rows of the input dframe.}
   \item{LTDdist$y}{Numerical value of the Y-Outcome for an Experimental Unit.}
   \item{LTDdist$t}{Numerical value of trtm (0 or 1) for an Experimental Unit.}
-  \item{LTDdist$LTD}{Numerical value of the LTD for the Cluster containing an
-    Experimental Unit.} 
+  \item{LTDdist$LTD}{Numerical value of the LTD for the Cluster containing each Exp. Unit.} 
   \item{infoclus}{Integer value of Number of Informative Clusters.}
   \item{infounits}{Integer value of Number of Units within Informative Clusters.}
   \item{LTDmean}{Numerical value of mean(LTDdist$LTD) = Weighted Average of

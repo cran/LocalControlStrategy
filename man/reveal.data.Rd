@@ -1,7 +1,7 @@
 \name{reveal.data}
 \alias{reveal.data}
 \title{Create a data.frame for use in Prediction of a LTD/LRC effect-size Distribution}
-\description{reveal.data() forms a data.frame by sorting and appending the LTD or LRC treatment
+\description{reveal.data() forms a data.frame by sorting and appending the LTD or LRC exposure
   effect-size measures from ltdagg() or lrcagg() -- as well as a Cluster membership-number
   variable -- to a copy of the data.frame specified in LCsetup(). In the fourth and final REVEAL
   Phase of Local Control Strategy, a stretch-goal is to predict variation in LTD/LRC effect-size

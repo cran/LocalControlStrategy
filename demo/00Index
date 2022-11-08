@@ -1,2 +1,3 @@
 pci15k     Demo of LC Strategy LTD functions on pci15k data; 15487 patients.
 radon      Demo of LC Strategy LRC functions on radon data; 2881 US counties.
+pmdata     Demo of LC Strategy LRC functions on pmdata; 2980 US counties.

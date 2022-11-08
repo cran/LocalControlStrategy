@@ -13,6 +13,9 @@ function (hclobj, dframe, trex, yvar)
     if (!is.element(as.character(trex), dimnames(dframe)[[2]])) 
         stop("Treatment or Exposure must be an existing Data Frame variable.")
     tvec <- dframe[,trex]
+    clt <- class(tvec)       # class(clt) is "character"
+    if ((clt != "integer") && (clt != "numeric"))
+        stop("The levels of the Treatment/Exposure variable must be integer or numeric.")
     Kmax <- floor(length(tvec)/12)    # Guideline: Maximum Number of Clusters = Nobs / 12
     NumLevels <- length(table(tvec))  # Max "levels" in Treatment / Exposure Level indicator
     if (NumLevels < 2)
@@ -40,12 +43,16 @@ function (hclobj, dframe, trex, yvar)
         cat("\nThe Treatment variable has two levels.")
         cat("\nLocal Rank Correlation (LRC) analyses are not applicable here.")
         cat("\nOnly Local Treatment Differences (LTDs) can be formed Within Clusters.\n\n")
-        if (max(tvec) != 1 || min(tvec) != 0 || class(tvec) == "character") 
-            stop("The two levels of the Treatment variable must be the integers: 1 or 0.")  
-        n1 = sum(z$t)
-        n0 = length(z$t) - n1
-        if( n1 == 0 || n0 == 0 ) 
-            stop("At least one Treatment Cohort contains only units with NA values.")
+        obs <- length(z$t)
+        mx <- max(z$t)
+        mn <- min(z$t)
+        if (mn != 0 || mx != 1) {
+          for (i in 1:obs) {
+            ifelse(z$t[i] == mx, z$t[i] <- 1, z$t[i] <- 0)
+          }
+        }
+        n1 <- sum(z$t)
+        n0 <- obs - n1
         LCmean = round( sum(z$y * z$t)/n1 - sum(z$y * (1-z$t))/n0, 8)
         e$LTDmin <- min(0, LCmean)
         e$LTDmax <- max(0, LCmean)

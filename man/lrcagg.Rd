@@ -34,12 +34,12 @@
   \item{LRCtabl$w}{Integer value of "weight" = Cluster Size.}
   \item{LRCtabl$LAO}{Numerical value of within-cluster Local Average Outcome (Y-value).} 
   \item{LRCtabl$PS}{Numerical value of Local Relative Propensity for Exposure, 0.0 to 1.0.}   
-  \item{LRCdist}{data.frame with 4 columns and same number of rows as the data: dframe.}
-  \item{LRCdist$c.K}{Name for the Cluster ID Variable of the form: "c.K" }
-  \item{LRCdist$y}{Numerical value of the Y-Outcome for an Experimental Unit.}
-  \item{LRCdist$t}{Numerical value of trex Exposure Level for an Experimental Unit.}
-  \item{LRCdist$LRC}{Numerical value of the LRC for the Cluster containing each
-    Experimental Unit.} 
+  \item{LRCdist}{data.frame with 5 columns and same number of rows as the data: dframe.}
+  \item{LRCdist$c.K}{Cluster ID Variable of the form: "c.K" }
+  \item{LRCdist$ID}{Observation ID Variable for the rows of the input dframe.}
+  \item{LRCdist$y}{Numerical values of Y-Outcomes for Experimental Units.}
+  \item{LRCdist$t}{Numerical values of Treatment-Exposure Levels for Experimental Units.}
+  \item{LRCdist$LRC}{Numerical values of the LRC for the Cluster containing each Unit.} 
   \item{infoclus}{Integer value of Number of Informative Clusters.}
   \item{infounits}{Integer value of Number of Units within Informative Clusters.}
   \item{LRCmean}{Numerical value of mean(LRCdist$LRC) = Weighted Average of

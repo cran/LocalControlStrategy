@@ -3,17 +3,17 @@
 \docType{package}
 \title{LocalControlStrategy: Unsupervised, Nonparametric Adjustment for Bias and Confounding}
 \description{LC Strategy defines Local Treatment Differences (LTDs) or Local Rank Correlations
-  (LRCs) within Clusters of experimental units (patients) who have been relatively well-matched
-  on their baseline x-Covariates.  The resulting distribution of LTD/LRC effect-size estimates
+  (LRCs) within Clusters of experimental units (patients, etc.) who have been relatively well-matched
+  on their baseline X-characteristics.  The resulting distribution of LTD/LRC effect-size estimates
   can be interpreted much like a Bayesian posterior. Yet these distributions have been formed,
-  via Nonparametric Preprocessing, in purely Objective Ways.
+  via Nonparametric and Unsupervised Preprocessing, in purely Objective Ways.
 }
 \details{
   \tabular{ll}{
   Package: \tab LocalControlStrategy\cr
   Type: \tab Package\cr
-  Version: \tab 1.3.3\cr
-  Date: \tab 2019-09-01\cr
+  Version: \tab 1.4\cr
+  Date: \tab 2022-11-09\cr
   License: \tab GPL-2\cr
   }
 
@@ -26,7 +26,7 @@
   
   UNSUPERVISED INSTRUMENTAL VARIABLES = LOCAL AVERAGE y-OUTCOME EFFECTS:
     
-  An observed Propensity Score (PS) is defined here to be either (i) the local (within-cluster)
+  An OBSERVED Propensity Score (PS) is defined here to be either (i) the local (within-cluster)
   fraction of experimental units (patients) receiving trex==1 (new) rather than trex==0 (control)
   or else (ii) a measure of "relative exposure" when the numeric trex measure has (many) more
   than 2 observed levels. Multiple calls to ivadj(K) for varying numbers of clusters, K, then
@@ -77,7 +77,7 @@
   research. \emph{Statistical Analysis and Data Mining}, \bold{7}: 376-384,
   \doi{10.1002/sam.11235}.
 
-  Obenchain RL. LocalControlStrategy-vignette. (2019) \bold{LCstrategy_in_R.pdf}
+  Obenchain RL. LocalControlStrategy-vignette. (2022) \bold{LCstrategy_in_R.pdf}
   http://localcontrolstatistics.org 
 
   Rosenbaum PR, Rubin RB. (1983) The Central Role of the Propensity Score
